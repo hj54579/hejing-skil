@@ -10,6 +10,7 @@ const C = {
   navy: '12283D', navy2: '16324A', navyLine: '2A4A66',
   teal: '0FA3B1', tealDark: '0B7A86', tealLt: 'E3F4F6', tealBg: 'EAF6F7', tealLine: 'CFE8EA',
   red: 'C0392B', redLt: 'FBECEA', redLine: 'F2C9C4',
+  orange: 'F5A623',
   ink: '1F2A37', gray: '5B6B7A', line: 'E3E9EF', white: 'FFFFFF',
   dSub: 'AAC4D6', dSub2: '8FA8BC', dTxt: 'C9D8E4', dCard: 'F7FAFC'
 };
@@ -66,35 +67,35 @@ function band(s, y, text, o = {}) {
   T(s, text, { x: MX + 0.4, y, w: CW - 0.7, h, fs: o.fs || 12, color: o.color || C.white, bold: o.bold !== false, valign: 'middle' });
 }
 
-// ================= S1 封面 =================
+// ================= S1 封面（左对齐 · 右侧留白 · 三栏底部信息） =================
 (function () {
   const s = pres.addSlide(); s.background = { color: C.navy };
-  // 顶部赛事标签胶囊
-  B(s, 2.62, 0.52, 4.76, 0.40, C.tealLt, null, 0.2);
-  T(s, '中国国际大学生创新大赛（2024）拟推荐项目', { x: 2.62, y: 0.52, w: 4.76, h: 0.40, fs: 12, color: C.tealDark, bold: true, align: 'center', valign: 'middle' });
-  // 装饰方块
-  for (let i = 0; i < 4; i++) SQ(s, 4.565 + i * 0.25, 1.30, 0.12, 0.12, C.teal);
-  // 主标题
-  T(s, '「锈鉴智检」', { x: 0.5, y: 1.62, w: 9, h: 0.95, fs: 54, color: C.white, bold: true, align: 'center' });
-  T(s, '—— 低成本高精度钢材质检专家', { x: 0.5, y: 2.66, w: 9, h: 0.5, fs: 26, color: C.teal, bold: true, align: 'center' });
-  T(s, '让高质量质检普惠每一家中小工厂', { x: 0.5, y: 3.36, w: 9, h: 0.4, fs: 15, color: C.dSub, align: 'center' });
-  // 信息玻璃卡片
-  B(s, 0.7, 4.02, 8.6, 1.22, C.navy2, C.navyLine, 0.08);
-  SQ(s, 5.0, 4.22, 0.012, 0.84, C.navyLine);
-  T(s, '参赛赛道', { x: 1.0, y: 4.16, w: 3.75, h: 0.28, fs: 12.5, color: C.teal, bold: true });
-  T(s, [
-    rt('学生赛道（本科组）', { breakLine: true }),
-    rt('广西科技师范学院 先进制造工程学院 · 智能制造工程')
-  ], { x: 1.0, y: 4.48, w: 3.72, h: 0.72, fs: 10.8, color: 'D5E2EC', ls: 1.3 });
-  T(s, '团队信息', { x: 5.25, y: 4.16, w: 3.85, h: 0.28, fs: 12.5, color: C.teal, bold: true });
-  T(s, [
-    rt('团队名称：锈鉴智检创新研发团队　负责人：谢宇', { breakLine: true }),
-    rt('成员：曹晓倩、伍锦琦、谢耀宽、何军', { breakLine: true }),
-    rt('指导教师：陈旭红、赖道辉')
-  ], { x: 5.25, y: 4.48, w: 3.82, h: 0.72, fs: 10.8, color: 'D5E2EC', ls: 1.3 });
-  // 底部
-  T(s, '广西科技师范学院 先进制造工程学院', { x: 0.5, y: 5.32, w: 4, h: 0.26, fs: 10.5, color: C.dSub2 });
-  T(s, '2024.10', { x: 8.4, y: 5.30, w: 1.1, h: 0.28, fs: 12, color: C.teal, bold: true, align: 'right' });
+  // 顶部：赛事标识 + 日期
+  CI(s, 0.50, 0.545, 0.12, C.orange);
+  T(s, '中国国际大学生创新大赛（2024）拟推荐项目', { x: 0.72, y: 0.47, w: 7, h: 0.30, fs: 12, color: C.white });
+  T(s, '2024.10', { x: 8.4, y: 0.47, w: 1.1, h: 0.30, fs: 11, color: C.dSub2, align: 'right' });
+  // 赛道标签（橙色路标）
+  T(s, '学生赛道（本科组）', { x: 0.5, y: 1.04, w: 6, h: 0.34, fs: 13.5, color: C.orange, bold: true });
+  // 主标题 + 橙色短横线
+  T(s, '「锈鉴智检」', { x: 0.5, y: 1.56, w: 8.8, h: 0.95, fs: 54, color: C.white, bold: true });
+  SQ(s, 6.30, 2.34, 1.25, 0.055, C.orange);
+  // 副标题
+  T(s, '低成本高精度钢材质检专家', { x: 0.5, y: 2.66, w: 9, h: 0.55, fs: 27, color: C.white, bold: true });
+  // Slogan
+  T(s, '让高质量质检普惠每一家中小工厂', { x: 0.5, y: 3.44, w: 9, h: 0.4, fs: 15, color: C.dSub });
+  // 分隔线
+  SQ(s, 0.5, 4.46, 9, 0.012, '2E4A63');
+  // 底部信息栏（三列）
+  const cols = [
+    { x: 0.5, w: 3.1, label: '学院 · 专业', lines: ['广西科技师范学院', '先进制造工程学院 · 智能制造工程'] },
+    { x: 3.8, w: 3.6, label: '团队 · 负责人', lines: ['锈鉴智检创新研发团队', '负责人：谢宇｜成员：曹晓倩、伍锦琦、谢耀宽、何军'] },
+    { x: 7.6, w: 2.4, label: '指导教师', lines: ['陈旭红、赖道辉'] }
+  ];
+  cols.forEach(c => {
+    T(s, c.label, { x: c.x, y: 4.68, w: c.w, h: 0.24, fs: 9.5, color: C.dSub2 });
+    T(s, c.lines.map(t => ({ text: t, options: { breakLine: true } })),
+      { x: c.x, y: 4.98, w: c.w, h: 0.50, fs: 10.3, color: 'D5E2EC', ls: 1.25 });
+  });
 })();
 
 // ================= S2 目录 =================
