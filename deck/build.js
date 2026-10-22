@@ -10,7 +10,7 @@ const C = {
   navy: '12283D', navy2: '16324A', navyLine: '2A4A66',
   teal: '0FA3B1', tealDark: '0B7A86', tealLt: 'E3F4F6', tealBg: 'EAF6F7', tealLine: 'CFE8EA',
   red: 'C0392B', redLt: 'FBECEA', redLine: 'F2C9C4',
-  orange: 'F5A623',
+  orange: 'F09F13',
   ink: '1F2A37', gray: '5B6B7A', line: 'E3E9EF', white: 'FFFFFF',
   dSub: 'AAC4D6', dSub2: '8FA8BC', dTxt: 'C9D8E4', dCard: 'F7FAFC'
 };
@@ -69,11 +69,11 @@ function band(s, y, text, o = {}) {
 
 // ================= S1 封面（左对齐 · 右侧留白 · 三栏底部信息） =================
 (function () {
-  const s = pres.addSlide(); s.background = { color: C.navy };
+  const s = pres.addSlide(); s.background = { color: '161D30' };
   // 顶部：赛事标识 + 日期
   CI(s, 0.50, 0.545, 0.12, C.orange);
   T(s, '中国国际大学生创新大赛（2024）拟推荐项目', { x: 0.72, y: 0.47, w: 7, h: 0.30, fs: 12, color: C.white });
-  T(s, '2024.10', { x: 8.4, y: 0.47, w: 1.1, h: 0.30, fs: 11, color: C.dSub2, align: 'right' });
+  T(s, '2024.10', { x: 8.4, y: 0.47, w: 1.1, h: 0.30, fs: 11, color: '94A3B8', align: 'right' });
   // 赛道标签（橙色路标）
   T(s, '学生赛道（本科组）', { x: 0.5, y: 1.04, w: 6, h: 0.34, fs: 13.5, color: C.orange, bold: true });
   // 主标题 + 橙色短横线
@@ -82,7 +82,7 @@ function band(s, y, text, o = {}) {
   // 副标题
   T(s, '低成本高精度钢材质检专家', { x: 0.5, y: 2.66, w: 9, h: 0.55, fs: 27, color: C.white, bold: true });
   // Slogan
-  T(s, '让高质量质检普惠每一家中小工厂', { x: 0.5, y: 3.44, w: 9, h: 0.4, fs: 15, color: C.dSub });
+  T(s, '让高质量质检普惠每一家中小工厂', { x: 0.5, y: 3.44, w: 9, h: 0.4, fs: 15, color: 'B0B8C4' });
   // 分隔线
   SQ(s, 0.5, 4.46, 9, 0.012, '2E4A63');
   // 底部信息栏（三列）
@@ -92,7 +92,7 @@ function band(s, y, text, o = {}) {
     { x: 7.6, w: 2.4, label: '指导教师', lines: ['陈旭红、赖道辉'] }
   ];
   cols.forEach(c => {
-    T(s, c.label, { x: c.x, y: 4.68, w: c.w, h: 0.24, fs: 9.5, color: C.dSub2 });
+    T(s, c.label, { x: c.x, y: 4.68, w: c.w, h: 0.24, fs: 9.5, color: '94A3B8' });
     T(s, c.lines.map(t => ({ text: t, options: { breakLine: true } })),
       { x: c.x, y: 4.98, w: c.w, h: 0.50, fs: 10.3, color: 'D5E2EC', ls: 1.25 });
   });
